@@ -1,0 +1,49 @@
+/health
+db
+implement HealthIndicator
+
+/info 
+info.***
+
+/metrics
+
+CounterService GaugeService
+CounterService.increment
+
+jconsole
+jvisi
+jmc
+
+@TestConfiguration
+class TestBeanConfiguration
+@SpringBootTest(class=TestBeanConfiguration.class)
+
+@Autowired
+private ConfigurableEnvironment env;
+EnvironmentTestUtils.addEnvironment(env, "a=b");
+env.getProperty("a");
+
+@SpringBootTest(class=Config.class)
+@MockBean
+BDDMockito.given(method).willreturn
+
+1。
+能注入
+@SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
+@Autowired
+TestRestTemplate restTemplate;
+
+2.
+不能注入依赖
+@WebMvcTest(controllers=Controllers.class)
+@Autowired
+private MockMvc mvc;
+
+mvc.perform(MockMvcRequestBuilders.get("/book/home").parameter("id", 400)).addExpect(MockMvcResultMatcher.status().isOk())
+
+3.
+@SpringBootTest
+@AutoConfigureMockMvc
+
+@Autowired
+private MockMvc mvc;
