@@ -13,6 +13,47 @@
             </goals>
         </execution>
     </executions>
+</plugin
+
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>appassembler-maven-plugin</artifactId>
+    <version>1.10</version>
+    <configuration>
+        <!--生成linux，windows两种平台的执行脚本-->
+        <platforms>
+            <platform>windows</platform>
+            <platform>unix</platform>
+        </platforms>
+        <!--根目录-->
+        <assembleDirectory>${project.build.directory}/demo</assembleDirectory>
+        <!--打包的jar，以及maven一栏的jar放到这个目录里-->
+        <repositoryName>lib</repositoryName>
+        <!--可执行脚本的目录-->
+        <binFolder>bin</binFolder>
+        <!--配置文件的目标目录-->
+        <configurationDirectory>conf</configurationDirectory>
+        <!--拷贝配置文件到上面的目录中-->
+        <copyConfigurationDirectory>true</copyConfigurationDirectory>
+        <!--从哪里拷贝配置文件（默认src/main/config）-->
+        <configurationSourceDirectory>src/main/resources</configurationSourceDirectory>
+        <!--lib目录中jar的存放规则，默认是${groupId}/${artifactId}的目录格式，flat表示直接把jar放到lib目录-->
+        <repositoryLayout>flat</repositoryLayout>
+        <encoding>UTF-8</encoding>
+        <logsDirectory>logs</logsDirectory>
+        <tempDirectory>tmp</tempDirectory>
+        <programs>
+            <program>
+                <id>demo</id>
+                <mainClass>com.example.demo.DemoApplication</mainClass>
+                <jvmSettings>
+                    <extraArguments>-server</extraArguments>
+                    <extraArguments>-Xmx2G</extraArguments>
+                    <extraArguments>-Xms2G</extraArguments>
+                </jvmSettings>
+            </program>
+        </programs>
+    </configuration>
 </plugin>
 -->
 <assembly>
