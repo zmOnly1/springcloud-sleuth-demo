@@ -1,0 +1,41 @@
+<!--
+<plugin>
+    <artifactId>maven-assembly-plugin</artifactId>
+    <configuration>
+        <descriptor>src/main/assembly/assembly.xml</descriptor>
+    </configuration>
+    <executions>
+        <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+                <goal>single</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+-->
+<assembly>
+    <id>assembly</id>
+    <formats>
+        <format>tar.gz</format>
+    </formats>
+    <includeBaseDirectory>true</includeBaseDirectory>
+    <fileSets>
+        <fileSet>
+            <directory>${project.build.directory}/classes/META-INF/assembly/bin</directory>
+            <outputDirectory>assembly.bin</outputDirectory>
+            <fileMode>0755</fileMode>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/resources/conf</directory>
+            <outputDirectory>conf</outputDirectory>
+            <fileMode>0644</fileMode>
+        </fileSet>
+    </fileSets>
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>lib</outputDirectory>
+        </dependencySet>
+    </dependencySets>
+</assembly>
